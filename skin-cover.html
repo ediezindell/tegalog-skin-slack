@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>[[FREE:TITLE:MAIN]]</title>
+  <link href="./style.css" rel="stylesheet" />
+</head>
+
+<body>
+  <header>
+    <!-- 戻るボタン -->
+    <a href="/" class="prev">
+      <svg width="24px" height="24px" viewBox="-19.04 0 75.803 75.803" title="戻る">
+        <g id="Group_64" data-name="Group 64" transform="translate(-624.082 -383.588)">
+          <path id="Path_56" data-name="Path 56"
+            d="M660.313,383.588a1.5,1.5,0,0,1,1.06,2.561l-33.556,33.56a2.528,2.528,0,0,0,0,3.564l33.556,33.558a1.5,1.5,0,0,1-2.121,2.121L625.7,425.394a5.527,5.527,0,0,1,0-7.807l33.556-33.559A1.5,1.5,0,0,1,660.313,383.588Z"
+            fill="#333" />
+        </g>
+      </svg>
+    </a>
+    <div class="about">
+      <h1>[[FREE:TITLE:MAIN]]</h1>
+      <span class="description">[[FREE:DESCRIPTION]]</span>
+    </div>
+  </header>
+  <main>[[TEGALOG]]</main>
+  <footer>[[QUICKPOST]]</footer>
+  <script>
+    // 末尾までスクロール
+    const element = document.querySelector("main .post:last-child");
+    element.scrollIntoView();
+  </script>
+</body>
+
+</html>
