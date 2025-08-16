@@ -6,6 +6,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>[[FREE:TITLE:MAIN]]</title>
   <link href="./style.css" rel="stylesheet" />
+  <script>
+    const params = new URLSearchParams(document.location.search);
+    const order = params.get("order");
+    if (order !== "reverse") {
+      params.append("order", "reverse");
+      const redirectTo = location.pathname + "?" + params.toString();
+      location.href = redirectTo;
+    }
+  </script>
 </head>
 
 <body>
