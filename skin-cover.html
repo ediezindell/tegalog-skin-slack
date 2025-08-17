@@ -44,11 +44,12 @@
     const element = document.querySelector("main .post:last-child");
     element.scrollIntoView();
 
-    // スクロールが終わってから表示する
+    // スクロールが終わってから投稿を表示
     const main = document.querySelector("main");
     main.style.visibility = "";
   </script>
   <script>
+    // QUICKPOSTのデザイン調整
     const postform = document.querySelector(".postform");
     document.querySelector(".tegalogpost")?.addEventListener("focus", () => {
       postform?.classList.add("active");
@@ -64,6 +65,7 @@
     });
   </script>
   <script>
+    // 投稿ボタンのデザイン変更
     const submitcover = document.querySelector(".submitcover");
     if (submitcover)
       submitcover.innerHTML = `<button type="submit" class="postbutton"><i class="ph-fill ph-paper-plane-right"></i></button>`;
