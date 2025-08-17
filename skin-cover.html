@@ -35,7 +35,7 @@
     </div>
     <a href="[[ADMIN:URL]]" class="admin Login-Required">管理画面へ</a>
   </header>
-  <main style="visibility: hidden;">[[TEGALOG]]</main>
+  <main style="visibility: hidden">[[TEGALOG]]</main>
   <footer>
     [[QUICKPOST]]
     <small class="copyright">[[VERSION]]</small>
@@ -48,6 +48,21 @@
     // スクロールが終わってから表示する
     const main = document.querySelector("main");
     main.style.visibility = "";
+  </script>
+  <script>
+    const postform = document.querySelector(".postform");
+    document.querySelector(".tegalogpost")?.addEventListener("focus", () => {
+      postform?.classList.add("active");
+    });
+    document.querySelector(".tegalogpost")?.addEventListener("click", () => {
+      postform?.classList.add("active");
+    });
+    document.querySelector("main")?.addEventListener("scroll", () => {
+      postform?.classList.remove("active");
+    });
+    document.querySelector("main")?.addEventListener("click", () => {
+      postform?.classList.remove("active");
+    });
   </script>
 </body>
 
