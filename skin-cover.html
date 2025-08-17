@@ -5,7 +5,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>[[FREE:TITLE:MAIN]]</title>
-  <link href="./style.css" rel="stylesheet" />
   <script>
     const params = new URLSearchParams(document.location.search);
     const order = params.get("order");
@@ -15,12 +14,13 @@
       location.href = redirectTo;
     }
   </script>
+  <link href="./style.css?5" rel="stylesheet" />
+  [[JS:LIGHTBOX:JQ]]
 </head>
 
 <body>
   <header>
-    <!-- 戻るボタン -->
-    <a href="/" class="prev">
+    <a href="/home" class="prev">
       <svg width="24px" height="24px" viewBox="-19.04 0 75.803 75.803" title="戻る">
         <g id="Group_64" data-name="Group 64" transform="translate(-624.082 -383.588)">
           <path id="Path_56" data-name="Path 56"
@@ -33,13 +33,21 @@
       <h1>[[FREE:TITLE:MAIN]]</h1>
       <span class="description">[[FREE:DESCRIPTION]]</span>
     </div>
+    <a href="[[ADMIN:URL]]" class="admin Login-Required">管理画面へ</a>
   </header>
-  <main>[[TEGALOG]]</main>
-  <footer>[[QUICKPOST]]</footer>
+  <main style="visibility: hidden;">[[TEGALOG]]</main>
+  <footer>
+    [[QUICKPOST]]
+    <small class="copyright">[[VERSION]]</small>
+  </footer>
   <script>
     // 末尾までスクロール
     const element = document.querySelector("main .post:last-child");
     element.scrollIntoView();
+
+    // スクロールが終わってから表示する
+    const main = document.querySelector("main");
+    main.style.visibility = "";
   </script>
 </body>
 

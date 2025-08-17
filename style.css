@@ -11,6 +11,8 @@
   --border: #eee;
   --bg: #fff;
   --text: #333;
+  --text-secondary: #666;
+  --main: #8cf;
 }
 
 html {
@@ -18,11 +20,11 @@ html {
   line-height: 1.5;
   font-family: Lato, "Noto Sans JP", sans-serif;
 }
+
 body {
-  width: 480px;
+  color: var(--text);
   background-color: var(--bg);
   height: 100dvh;
-  margin-inline: auto;
   display: grid;
   grid-template-rows: auto 1fr auto;
 }
@@ -32,9 +34,11 @@ header {
   column-gap: 4px;
   padding: 4px;
   display: grid;
-  grid-template-columns: auto 1fr;
+  align-items: center;
+  grid-template-columns: auto 1fr auto;
   border-bottom: 1px solid var(--border);
 }
+
 .prev {
   border-radius: 8px;
   display: grid;
@@ -42,30 +46,40 @@ header {
   padding-inline: 8px;
   transition: all 0.3s ease;
 }
+
 .prev:hover {
   background-color: var(--border);
 }
+
 .prev svg {
   aspect-ratio: 1/1;
   height: auto;
   width: 1.5rem;
 }
+
 .prev path {
-  fill: #333;
+  fill: var(--text);
 }
+
 .about {
   display: grid;
 }
-.title {
+
+h1 {
   font-weight: bold;
 }
+
 .description {
   font-size: 0.8rem;
-  color: #333;
+}
+
+.admin {
+  font-size: 0.8em;
 }
 
 /* メインコンテンツ */
 main {
+  width: 80vw;
   padding: 16px;
   display: flex;
   gap: 16px;
@@ -73,6 +87,7 @@ main {
   justify-content: start;
   height: 100%;
   overflow: auto;
+  margin-inline: auto;
 }
 
 /* 各投稿 */
@@ -81,33 +96,74 @@ main {
   column-gap: 8px;
   grid-template-areas:
     "image meta"
-    "image content";
+    "image content"
+    "image other";
 }
+
 .usericon {
   aspect-ratio: 1/1;
   height: auto;
   width: 48px;
   grid-area: image;
-  border-radius: 9999px;
+  border-radius: 50%;
+  background-color: var(--main);
 }
+
 .post-meta {
   grid-area: meta;
   display: grid;
-  grid-template-columns: auto 1fr;
+  grid-template-columns: auto 1fr auto;
   gap: 4px;
   align-items: center;
 }
+
 .author-name {
   font-weight: bold;
 }
+
 .post-time {
   font-size: 0.8em;
   padding-block: 0.2em;
 }
+
 .post-content {
   grid-area: content;
 }
-.post a[href] {
+
+.post-tags,
+.passkeyform {
+  grid-area: other;
+}
+
+.post-tags {
+  display: flex;
+  justify-content: flex-end;
+  gap: 4px;
+}
+
+.nocategory,
+.catseparator {
+  display: none;
+}
+
+.categorylink {
+  font-size: 0.75em;
+  margin-top: 4px;
+  padding: 2px 4px;
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  color: var(--text-secondary);
+}
+
+.categorylink:hover {
+  opacity: 0.8;
+}
+
+.passkeyinput {
+  border: 1px solid var(--border);
+}
+
+.post a[href]:not(.imagelink, .categorylink, .post-edit) {
   margin-inline: 2px;
   color: #146b8c;
   background-color: #e2f7ff;
@@ -119,29 +175,35 @@ main {
   line-height: 1.75;
   border-bottom: 1px solid var(--border);
 }
+
 .datefunclinks {
   display: none;
 }
 
 /* 投稿フォーム */
-form {
+.postform {
   border-top: 1px solid var(--border);
   border-radius: 8px;
   padding-top: 8px;
 }
+
 .tegalogpost {
   width: 100%;
   max-height: fit-content;
   padding: 8px;
   outline: 0;
 }
-.line-control {
+
+.submitcover {
   display: grid;
   place-content: end;
+  padding-inline: 8px;
 }
-.line-control > *:not(.submitcover) {
+
+.line-control>*:not(.submitcover) {
   display: none;
 }
+
 .postbutton {
   padding: 4px;
   font-size: 0.8rem;
@@ -150,12 +212,60 @@ form {
   color: #fff;
   background-color: #059334;
 }
+
 .postbutton:hover {
   opacity: 0.8;
 }
 
 /* copyright */
-body > div:last-child {
+.copyright {
+  display: block;
   color: #888;
   text-align: center;
+}
+
+.post {
+  grid-template-columns: auto 1fr;
+}
+
+.post:last-child {
+  padding-bottom: 16px;
+}
+
+.embeddedmovie,
+.embeddedimage {
+  height: auto;
+  width: 100%;
+  max-width: 400px;
+}
+
+.usericon {
+  border: 1px solid var(--border);
+}
+
+.post-content {
+  word-break: break-all;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #111;
+    --border: #333;
+    --text: #fff;
+    --text-secondary: #aaa;
+  }
+}
+
+@media (width <=720px) {
+  main {
+    width: auto;
+  }
+
+  .post {
+    font-size: 0.8rem;
+  }
+}
+
+input[type="checkbox"] {
+  appearance: auto;
 }
