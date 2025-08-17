@@ -52,10 +52,11 @@ header {
 }
 
 .prev {
+  font-size: 1.5rem;
   border-radius: 8px;
   display: grid;
   place-content: center;
-  padding-inline: 8px;
+  padding: 8px;
   transition: all 0.3s ease;
 }
 
@@ -241,12 +242,15 @@ main {
 }
 
 .postbutton {
-  padding: 4px;
-  font-size: 0.8rem;
-  border: 1px solid var(--border);
-  border-radius: 4px;
+  padding: 8px;
+  font-size: 1.5rem;
+  aspect-ratio: 1/1;
+  display: grid;
+  place-content: center;
+  border-radius: 50%;
   color: #fff;
   background-color: #059334;
+  transition: opacity 0.3s ease;
 }
 
 .postbutton:hover {
@@ -262,22 +266,28 @@ main {
 }
 .line-control {
   width: 100%;
+  display: inline-flex;
+  gap: 4px;
+  flex-wrap: wrap;
 }
-.line-control .catChecks label,
-.line-control input[type="button"] {
-  display: block;
+.catChecks {
+  display: inline-flex;
+  gap: 4px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.catChecks label {
+  display: inline-grid;
+  grid-template-columns: auto auto;
+  gap: 4px;
+  place-items: center;
   font-size: 0.9rem;
   padding: 4px 8px;
 }
 .line-control input[type="button"] {
   border: 1px solid var(--border);
-}
-.line-control,
-.decoBtns,
-.catChecks {
-  display: inline-flex;
-  gap: 2px;
-  flex-wrap: wrap;
+  font-size: 0.9rem;
+  padding: 4px 8px;
 }
 
 /* copyright */
